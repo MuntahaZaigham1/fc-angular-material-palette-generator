@@ -1,0 +1,98 @@
+<mat-expansion-panel [expanded]="true" class="section-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>palette</mat-icon>
+      <span>Seed Colors</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="color-section-container">
+    <!-- Primary Seed Colors -->
+    <div class="seed-colors-row">
+      <mat-form-field appearance="outline" class="color-input-field">
+        <mat-label>Primary Seed Color *</mat-label>
+        <input 
+          type="color" 
+          [value]="primarySeed"
+          (input)="onSeedColorChange('primary', $event)"
+          matInput
+          required />
+        <mat-hint>{{ primarySeed }}</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="color-input-field">
+        <mat-label>Secondary Seed Color</mat-label>
+        <input 
+          type="color" 
+          [value]="secondarySeed"
+          (input)="onSeedColorChange('secondary', $event)"
+          matInput />
+        <mat-hint>{{ secondarySeed || 'Auto-generated from primary' }}</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="color-input-field">
+        <mat-label>Tertiary Seed Color</mat-label>
+        <input 
+          type="color" 
+          [value]="tertiarySeed"
+          (input)="onSeedColorChange('tertiary', $event)"
+          matInput />
+        <mat-hint>{{ tertiarySeed || 'Auto-generated from primary' }}</mat-hint>
+      </mat-form-field>
+    </div>
+
+    <!-- Optional Override Fields -->
+    <mat-expansion-panel [expanded]="false" class="advanced-panel">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          <mat-icon>tune</mat-icon>
+          <span>Advanced Color Settings (Optional)</span>
+        </mat-panel-title>
+        <mat-panel-description>
+          Override auto-generated palettes
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <div class="advanced-colors-container">
+        <div class="advanced-colors-row">
+          <mat-form-field appearance="outline" class="color-input-field">
+            <mat-label>Neutral Seed Color</mat-label>
+            <input 
+              type="color" 
+              [value]="neutralSeedColor"
+              (input)="onSeedColorChange('neutral', $event)"
+              matInput />
+            <mat-hint>Leave empty to auto-generate from primary</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="color-input-field">
+            <mat-label>Neutral Variant Seed Color</mat-label>
+            <input 
+              type="color" 
+              [value]="neutralVariantSeedColor"
+              (input)="onSeedColorChange('neutralVariant', $event)"
+              matInput />
+            <mat-hint>Leave empty to auto-generate from primary</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="color-input-field">
+            <mat-label>Error Seed Color</mat-label>
+            <input 
+              type="color" 
+              [value]="errorSeedColor"
+              (input)="onSeedColorChange('error', $event)"
+              matInput />
+            <mat-hint>Default: #B3261E (Material Design standard)</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-expansion-panel>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <mat-icon>info</mat-icon>
+      <span>Neutral, Neutral-Variant, and Error palettes are automatically generated from the primary seed color if not specified.</span>
+    </div>
+  </div>
+</mat-expansion-panel>
+

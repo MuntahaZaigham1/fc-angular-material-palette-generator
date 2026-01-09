@@ -1,0 +1,17 @@
+<!-- Color Section -->
+<app-color-section 
+    [primarySeed]="primarySeed"
+    [secondarySeed]="secondarySeed"
+    [tertiarySeed]="tertiarySeed"
+    [neutralSeedColor]="neutralSeedColor"
+    [neutralVariantSeedColor]="neutralVariantSeedColor"
+    [errorSeedColor]="errorSeedColor"
+    (seedColorChange)="onSeedColorChange($event.colorType, $event.color)">
+</app-color-section>
+
+<!-- Palette Display -->
+<app-palette-display 
+    [generatedPalettes]="generatedPalettes" 
+    [standardTones]="standardTonesOnly"
+    [allTones]="allTones">
+</app-palette-display>

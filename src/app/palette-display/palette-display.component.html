@@ -1,0 +1,149 @@
+<mat-expansion-panel [expanded]="true" class="palette-display-panel">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon>color_lens</mat-icon>
+      <span>Color Palettes Generated</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+  <div class="palettes-container">
+    <!-- Primary Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Primary</h4>
+      <div class="palette-row">
+        @for (tone of standardTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('primary', tone)"
+               (mouseenter)="hoveredTone = {palette: 'primary', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'primary' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('primary', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Secondary Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Secondary</h4>
+      <div class="palette-row">
+        @for (tone of standardTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('secondary', tone)"
+               (mouseenter)="hoveredTone = {palette: 'secondary', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'secondary' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('secondary', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Tertiary Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Tertiary</h4>
+      <div class="palette-row">
+        @for (tone of standardTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('tertiary', tone)"
+               (mouseenter)="hoveredTone = {palette: 'tertiary', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'tertiary' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('tertiary', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Neutral Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Neutral</h4>
+      <div class="palette-row">
+        @for (tone of allTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('neutral', tone)"
+               (mouseenter)="hoveredTone = {palette: 'neutral', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'neutral' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('neutral', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Neutral Variant Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Neutral Variant</h4>
+      <div class="palette-row">
+        @for (tone of standardTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('neutralVariant', tone)"
+               (mouseenter)="hoveredTone = {palette: 'neutralVariant', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'neutralVariant' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('neutralVariant', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- Error Palette -->
+    <div class="palette-container">
+      <h4 class="palette-title">Error</h4>
+      <div class="palette-row">
+        @for (tone of standardTones; track tone) {
+          <div class="palette-swatch" 
+               [style.background-color]="getPaletteColor('error', tone)"
+               (mouseenter)="hoveredTone = {palette: 'error', tone: tone}"
+               (mouseleave)="hoveredTone = null">
+            <div class="palette-tone-label">{{ tone }}</div>
+            @if (hoveredTone?.palette === 'error' && hoveredTone?.tone === tone) {
+              <button type="button" 
+                      class="copy-button" 
+                      (click)="copyColorToClipboard(getPaletteColor('error', tone), tone, $event)"
+                      matTooltip="Copy hex color">
+                <mat-icon>content_copy</mat-icon>
+              </button>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</mat-expansion-panel>
+
